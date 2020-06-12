@@ -20,7 +20,18 @@ namespace MediaLibrary.DAL
         }
         public MediaTO CreerMedia(MediaTO entity)
         {
-            return context.Medias.Add(entity.ToEF()).ToTransferObject();
+            if (entity is null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (entity.Id != 0)
+            {
+                return entity;
+            }
+            var entityEF = context.Medias.Add(entity.ToEF());
+            context.SaveChanges();
+
+            return entityEF.ToTransferObject();
         }
 
         public MediaTO ModifierMedia(MediaTO entity)
@@ -39,12 +50,35 @@ namespace MediaLibrary.DAL
 
         public List<MediaTO> ObtenirTousMedias()
         {
-            return context.Medias.Select(m => m.ToTransferObject()).ToList();
+            return context.Medias
+                .AsNoTracking()
+                .Select(x => x.ToTransferObject())
+                .ToList();
         }
 
         public MediaTO SupprimerMedia(MediaTO entity)
         {
-            return context.Medias.FirstOrDefault(media => media.Id == entity.Id).ToTransferObject();
+            if (entity is null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+            if (entity.Id <= 0)
+            {
+                throw new ArgumentException("Category To Update Invalid Id");
+            }
+            if (!context.Medias.Any(x => x.Id == entity.Id))
+            {
+                throw new KeyNotFoundException($"Update(CategoryTO) Can't find category to update.");
+            }
+
+            var editedEntity = context.Medias.FirstOrDefault(e => e.Id == entity.Id);
+            if (editedEntity != default)
+            {
+                editedEntity = entity.ToEF();
+            }
+            context.SaveChanges();
+
+            return editedEntity.ToTransferObject();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.Common;
+using MediaLibrary.Common;
 
 namespace MediaLibrary.DAL.Tests.MediaRepoTests
 {
@@ -10,9 +11,19 @@ namespace MediaLibrary.DAL.Tests.MediaRepoTests
         [TestMethod]
         public void CreerMedia_Successful()
         {
-            using (var context = new MediaLibraryContext(Effort.DbConnectionFactory.CreateTransient())) 
-            { 
+            var connection = Effort.DbConnectionFactory.CreateTransient();
+            using (var context = new MediaLibraryContext(connection)) 
+            {
+                IRepo mediaRepo = new MediaRepo(context);
+                //ACT
+                var media = new MediaTO { Name = "Cendrillon",Type=MediaType.Film, Path="C:/Films/Animation" };
+                var result = mediaRepo.CreerMedia(media);
+                context.SaveChanges();
 
+                //ASSERT
+                Assert.IsNotNull(result);
+                Assert.AreEqual("Cendrillon", result.Name);
+                Assert.AreEqual(1, result.Id);
             }
         }
     }

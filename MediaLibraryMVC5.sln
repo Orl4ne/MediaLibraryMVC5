@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLibrary.DAL.Tests", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLibrary.Common", "MediaLibrary.Common\MediaLibrary.Common.csproj", "{C3F86CAF-08D1-4647-941B-C7B4A288B7A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLibrary.Common.Tests", "MediaLibrary.Common.Tests\MediaLibrary.Common.Tests.csproj", "{11617363-37C2-44B6-8ABA-9DD4A3DFD121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C3F86CAF-08D1-4647-941B-C7B4A288B7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3F86CAF-08D1-4647-941B-C7B4A288B7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3F86CAF-08D1-4647-941B-C7B4A288B7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11617363-37C2-44B6-8ABA-9DD4A3DFD121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11617363-37C2-44B6-8ABA-9DD4A3DFD121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11617363-37C2-44B6-8ABA-9DD4A3DFD121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11617363-37C2-44B6-8ABA-9DD4A3DFD121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
