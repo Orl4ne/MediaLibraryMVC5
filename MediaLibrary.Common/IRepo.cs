@@ -10,7 +10,7 @@ namespace MediaLibrary.Common
     {
         MediaTO CreerMedia(MediaTO entity);
         MediaTO ModifierMedia(MediaTO entity);
-        MediaTO SupprimerMedia(MediaTO entity);
+        bool SupprimerMedia(MediaTO entity);
         List<MediaTO> ObtenirTousMedias();
     }
 }

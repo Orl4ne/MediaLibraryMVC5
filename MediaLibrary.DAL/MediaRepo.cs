@@ -36,38 +36,17 @@ namespace MediaLibrary.DAL
 
         public MediaTO ModifierMedia(MediaTO entity)
         {
-            var entityEF = entity.ToEF();
-            var mediaFound = context.Medias.FirstOrDefault(media => media.Id == entityEF.Id);
-            if (mediaFound != null)
-            {
-                mediaFound.Name = entityEF.Name;
-                mediaFound.Path = entityEF.Path;
-                mediaFound.Type = entityEF.Type;
-                context.SaveChanges();
-            }
-            return mediaFound.ToTransferObject();
-        }
-
-        public List<MediaTO> ObtenirTousMedias()
-        {
-            return context.Medias.AsEnumerable()
-                .Select(x => x.ToTransferObject())
-                .ToList();
-        }
-
-        public MediaTO SupprimerMedia(MediaTO entity)
-        {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
             if (entity.Id <= 0)
             {
-                throw new ArgumentException("Category To Update Invalid Id");
+                throw new ArgumentException("Media To Update Invalid Id");
             }
             if (!context.Medias.Any(x => x.Id == entity.Id))
             {
-                throw new KeyNotFoundException($"Update(CategoryTO) Can't find category to update.");
+                throw new KeyNotFoundException($"Update(MediaTO) Can't find media to update.");
             }
 
             var editedEntity = context.Medias.FirstOrDefault(e => e.Id == entity.Id);
@@ -78,6 +57,33 @@ namespace MediaLibrary.DAL
             context.SaveChanges();
 
             return editedEntity.ToTransferObject();
+        }
+
+        public List<MediaTO> ObtenirTousMedias()
+        {
+            return context.Medias.AsEnumerable()
+                .Select(x => x.ToTransferObject())
+                .ToList();
+        }
+
+        public bool SupprimerMedia(MediaTO entity)
+        {
+            var media = context.Medias.FirstOrDefault(x => x.Id == entity.Id);
+
+            if (media is null)
+            {
+                throw new KeyNotFoundException();
+            }
+            try
+            {
+                context.Medias.Remove(media);
+                context.SaveChanges();
+                return true;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
         }
     }
 }
