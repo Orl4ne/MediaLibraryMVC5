@@ -62,7 +62,7 @@ namespace MediaLibrary.DAL
         public List<MediaTO> ObtenirTousMedias()
         {
             return context.Medias.AsEnumerable()
-                .Select(x => x.ToTransferObject())
+                ?.Select(x => x.ToTransferObject())
                 .ToList();
         }
 
