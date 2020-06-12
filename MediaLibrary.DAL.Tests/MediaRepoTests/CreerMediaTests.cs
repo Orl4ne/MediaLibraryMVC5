@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data.Common;
 
 namespace MediaLibrary.DAL.Tests.MediaRepoTests
 {
@@ -9,10 +10,10 @@ namespace MediaLibrary.DAL.Tests.MediaRepoTests
         [TestMethod]
         public void CreerMedia_Successful()
         {
-            var connection = Effort.DbConnectionFactory.CreateTransient();
-            using var ctxt = new MediaContext(connection);
+            using (var context = new MediaLibraryContext(Effort.DbConnectionFactory.CreateTransient())) 
+            { 
 
-
+            }
         }
     }
 }

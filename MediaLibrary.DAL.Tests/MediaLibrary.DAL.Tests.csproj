@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MediaRepoTests\CreerMediaTests.cs" />
@@ -71,6 +72,19 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MediaLibrary.Common\MediaLibrary.Common.csproj">
+      <Project>{c3f86caf-08d1-4647-941b-c7b4a288b7a9}</Project>
+      <Name>MediaLibrary.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaLibrary.DAL\MediaLibrary.DAL.csproj">
+      <Project>{07b92e8d-a6a4-4f5c-a9b0-ca23e006de6a}</Project>
+      <Name>MediaLibrary.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
