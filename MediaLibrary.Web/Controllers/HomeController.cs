@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MediaLibrary.DAL;
+using MediaLibrary.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +12,8 @@ namespace MediaLibrary.Web.Controllers
     {
         public ActionResult Index()
         {
-
-            return View();
+            
+            return View(MediaLibraryContext.Medias.ObtenirTousMedias());
         }
 
         public ActionResult About()
