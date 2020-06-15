@@ -10,9 +10,9 @@ namespace MediaLibrary.DAL
 {
     public class MediaLibraryContext : DbContext
     {
-        //public MediaLibraryContext()
-        //{
-        //}
+        public MediaLibraryContext()
+        {
+        }
         public MediaLibraryContext(DbConnection connection) : base(connection, false)
         {
         }
