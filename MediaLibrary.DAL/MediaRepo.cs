@@ -85,5 +85,10 @@ namespace MediaLibrary.DAL
                 return false;
             }
         }
+
+        public MediaTO GetById (int id)
+        {
+            return context.Medias.FirstOrDefault(x => x.Id == id).ToTransferObject();
+        }
     }
 }

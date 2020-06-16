@@ -27,7 +27,8 @@ namespace MediaLibrary.Web.Controllers
         // GET: Media/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var media = mediaRepo.GetById(id);
+            return View(media);
         }
 
         // GET: Media/Create
@@ -55,7 +56,8 @@ namespace MediaLibrary.Web.Controllers
         // GET: Media/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var mediaToEdit = mediaRepo.GetById(id);
+            return View(mediaToEdit);
         }
 
         // POST: Media/Edit/5
@@ -77,7 +79,8 @@ namespace MediaLibrary.Web.Controllers
         // GET: Media/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var mediToDelete = mediaRepo.GetById(id);
+            return View(mediToDelete);
         }
 
         // POST: Media/Delete/5
