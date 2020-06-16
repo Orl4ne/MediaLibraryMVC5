@@ -16,7 +16,7 @@ namespace MediaLibrary.DAL.Tests.MediaRepoTests
             {
                 IRepo mediaRepo = new MediaRepo(context);
                 //ARRANGE
-                var media = new MediaTO { Name = "Cendrillon", Type = MediaType.Film, Path = "C:/Films/Animation" };
+                var media = new MediaTO {  Name = "Cendrillon", Type = MediaType.Film, Path = "C:/Films/Animation" };
                 var media2 = new MediaTO { Name = "C# pour les nulls", Type = MediaType.Book, Path = "C:/Book/Code" };
                 var media3 = new MediaTO { Name = "The IT Crowd", Type = MediaType.Serie, Path = "C:/Films/Series" };
                 var result = mediaRepo.CreerMedia(media);

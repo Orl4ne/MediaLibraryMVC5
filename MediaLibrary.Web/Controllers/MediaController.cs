@@ -1,4 +1,5 @@
 ﻿using MediaLibrary.DAL;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,17 @@ namespace MediaLibrary.Web.Controllers
 {
     public class MediaController : Controller
     {
+        private MediaRepo mediaRepo { get; set; }
         public MediaController()
         {
-
+            mediaRepo = new MediaRepo(new MediaLibraryContext());
         }
 
         // GET: Media
         public ActionResult Index()
         {
-            //var entities = MediaRepo.;
-            return View();
+            var medias = mediaRepo.ObtenirTousMedias();
+            return View(medias);
         }
 
         // GET: Media/Details/5

@@ -55,9 +55,9 @@
     <Compile Include="MediaLibraryContext.cs" />
     <Compile Include="MediaEF.cs" />
     <Compile Include="MediaRepo.cs" />
-    <Compile Include="Migrations\202006160913360_initial.cs" />
-    <Compile Include="Migrations\202006160913360_initial.designer.cs">
-      <DependentUpon>202006160913360_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202006160955563_initial.cs" />
+    <Compile Include="Migrations\202006160955563_initial.designer.cs">
+      <DependentUpon>202006160955563_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,9 +73,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006160913360_initial.resx">
-      <DependentUpon>202006160913360_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006160955563_initial.resx">
+      <DependentUpon>202006160955563_initial.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Insertions.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
