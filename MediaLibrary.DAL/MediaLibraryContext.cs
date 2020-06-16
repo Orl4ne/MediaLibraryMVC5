@@ -21,5 +21,7 @@ namespace MediaLibrary.DAL
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<MediaEF> Medias { get; set; }
+
+        public System.Data.Entity.DbSet<MediaLibrary.Common.MediaTO> MediaTOes { get; set; }
     }
 }

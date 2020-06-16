@@ -1,4 +1,5 @@
-﻿using MediaLibrary.DAL;
+﻿using MediaLibrary.Common;
+using MediaLibrary.DAL;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
@@ -37,11 +38,11 @@ namespace MediaLibrary.Web.Controllers
 
         // POST: Media/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MediaTO media)
         {
             try
             {
-                // TODO: Add insert logic here
+                mediaRepo.CreerMedia(media);
 
                 return RedirectToAction("Index");
             }
