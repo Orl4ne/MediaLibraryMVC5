@@ -60,11 +60,11 @@ namespace MediaLibrary.Web.Controllers
 
         // POST: Media/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MediaTO media)
         {
             try
             {
-                // TODO: Add update logic here
+                mediaRepo.ModifierMedia(media);
 
                 return RedirectToAction("Index");
             }
@@ -82,11 +82,11 @@ namespace MediaLibrary.Web.Controllers
 
         // POST: Media/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, MediaTO media)
         {
             try
             {
-                // TODO: Add delete logic here
+                mediaRepo.SupprimerMedia(media);
 
                 return RedirectToAction("Index");
             }
