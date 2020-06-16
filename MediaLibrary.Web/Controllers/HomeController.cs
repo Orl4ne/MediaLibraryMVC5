@@ -12,8 +12,7 @@ namespace MediaLibrary.Web.Controllers
     {
         public ActionResult Index()
         {
-            
-            return View(MediaLibraryContext.Medias.ObtenirTousMedias());
+            return View();
         }
 
         public ActionResult About()

@@ -10,12 +10,14 @@ namespace MediaLibrary.DAL
 {
     public class MediaLibraryContext : DbContext
     {
-        public MediaLibraryContext()
+        public MediaLibraryContext() : base("MediaLibraryDb")
         {
         }
         public MediaLibraryContext(DbConnection connection) : base(connection, false)
         {
         }
         public DbSet<MediaEF> Medias { get; set; }
+
+        public System.Data.Entity.DbSet<MediaLibrary.Common.MediaTO> MediaTOes { get; set; }
     }
 }

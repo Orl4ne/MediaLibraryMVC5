@@ -16,6 +16,8 @@ namespace MediaLibrary.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //Unity dependency injection
+            UnityConfig.RegisterComponents();
         }
     }
 }

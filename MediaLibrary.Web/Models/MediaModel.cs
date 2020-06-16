@@ -8,9 +8,6 @@ namespace MediaLibrary.Web.Models
 {
     public class MediaModel
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Path { get; set; }
-        public MediaType Type { get; set; }
+        public MediaTO Media { get; set; }
     }
 }

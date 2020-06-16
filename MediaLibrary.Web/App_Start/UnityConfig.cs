@@ -16,7 +16,6 @@ namespace MediaLibrary.Web
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<MediaLibraryContext>();
             container.RegisterType<IRepo, MediaRepo>();
             
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
