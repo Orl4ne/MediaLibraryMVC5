@@ -8,18 +8,7 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.MediaEFs",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Path = c.String(),
-                        Type = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.MediaTOes",
+                "Medias",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -33,8 +22,7 @@
         
         public override void Down()
         {
-            DropTable("dbo.MediaTOes");
-            DropTable("dbo.MediaEFs");
+            DropTable("Medias");
         }
     }
 }

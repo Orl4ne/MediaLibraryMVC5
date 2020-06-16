@@ -13,7 +13,7 @@ namespace MediaLibrary.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202006160858535_initial"; }
+            get { return "202006160913360_initial"; }
         }
         
         string IMigrationMetadata.Source

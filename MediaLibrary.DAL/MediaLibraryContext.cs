@@ -16,8 +16,10 @@ namespace MediaLibrary.DAL
         public MediaLibraryContext(DbConnection connection) : base(connection, false)
         {
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<MediaEF> Medias { get; set; }
-
-        public System.Data.Entity.DbSet<MediaLibrary.Common.MediaTO> MediaTOes { get; set; }
     }
 }

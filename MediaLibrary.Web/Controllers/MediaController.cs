@@ -9,6 +9,10 @@ namespace MediaLibrary.Web.Controllers
 {
     public class MediaController : Controller
     {
+        public MediaController()
+        {
+
+        }
 
         // GET: Media
         public ActionResult Index()
