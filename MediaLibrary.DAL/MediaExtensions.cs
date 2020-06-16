@@ -36,5 +36,20 @@ namespace MediaLibrary.DAL
                 Type = media.Type
             };
         }
+        public static MediaEF ToTrackedEF(this MediaTO media, MediaEF mediaToModify )
+        {
+            if (mediaToModify is null)
+                throw new ArgumentNullException(nameof(mediaToModify));
+            if (media is null)
+                throw new ArgumentNullException(nameof(media));
+
+            mediaToModify.Id = media.Id;
+            mediaToModify.Name = media.Name;
+            mediaToModify.Type = media.Type;
+            mediaToModify.Path = media.Path;
+
+            return mediaToModify;    
+            
+        }
     }
 }

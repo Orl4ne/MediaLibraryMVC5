@@ -66,8 +66,7 @@ namespace MediaLibrary.Web.Controllers
         {
             try
             {
-                mediaRepo.ModifierMedia(media);
-
+                var temp = mediaRepo.ModifierMedia(media);
                 return RedirectToAction("Index");
             }
             catch

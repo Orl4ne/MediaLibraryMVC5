@@ -52,7 +52,7 @@ namespace MediaLibrary.DAL
             var editedEntity = context.Medias.FirstOrDefault(e => e.Id == entity.Id);
             if (editedEntity != default)
             {
-                editedEntity = entity.ToEF();
+                entity.ToTrackedEF(editedEntity);
             }
             context.SaveChanges();
 

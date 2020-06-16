@@ -10,7 +10,7 @@ namespace MediaLibrary.DAL
 {
     public class MediaLibraryContext : DbContext
     {
-        public MediaLibraryContext() : base("MediaLibraryDb")
+        public MediaLibraryContext() : base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MediaLibraryDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
         }
         public MediaLibraryContext(DbConnection connection) : base(connection, false)
@@ -21,7 +21,6 @@ namespace MediaLibrary.DAL
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<MediaEF> Medias { get; set; }
-
-        public System.Data.Entity.DbSet<MediaLibrary.Common.MediaTO> MediaTOes { get; set; }
+            
     }
 }
