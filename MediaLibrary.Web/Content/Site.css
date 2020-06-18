@@ -13,6 +13,17 @@ html, body {
     padding-right: 15px;
 }
 
+.center-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navbar-nav > li {
+    margin-right: 0.6rem;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -25,4 +36,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.jumbotron-trans{
+    background-color:rgba(255, 255, 255, 0.9);
 }
