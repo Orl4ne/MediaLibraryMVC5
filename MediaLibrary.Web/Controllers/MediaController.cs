@@ -20,7 +20,7 @@ namespace MediaLibrary.Web.Controllers
         // GET: Media
         public ActionResult Index()
         {
-            var medias = mediaRepo.ObtenirTousMedias();
+            var medias = mediaRepo.GetAllMedias();
             return View(medias);
         }
 
@@ -43,7 +43,7 @@ namespace MediaLibrary.Web.Controllers
         {
             try
             {
-                mediaRepo.CreerMedia(media);
+                mediaRepo.CreateMedia(media);
 
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace MediaLibrary.Web.Controllers
         {
             try
             {
-                var temp = mediaRepo.ModifierMedia(media);
+                var temp = mediaRepo.ModifyMedia(media);
                 return RedirectToAction("Index");
             }
             catch
@@ -88,7 +88,7 @@ namespace MediaLibrary.Web.Controllers
         {
             try
             {
-                mediaRepo.SupprimerMedia(media);
+                mediaRepo.DeleteMedia(media);
 
                 return RedirectToAction("Index");
             }

@@ -20,6 +20,15 @@ namespace MediaLibrary.Common.Tests
             Assert.AreEqual(media.Type, result.Type);
             Assert.AreEqual(media.Path, result.Path);
         }
+
+        [TestMethod]
+        public void ToTransfertObject_ProvidingNull_ThrowException()
+        {
+            //ARRANGE
+            MediaEF media = null;
+            //ACT
+            Assert.ThrowsException<ArgumentNullException>(() => media.ToTransferObject());
+        }
         [TestMethod]
         public void ToEF_Successfull()
         {
@@ -32,6 +41,34 @@ namespace MediaLibrary.Common.Tests
             Assert.AreEqual(media.Id, result.Id);
             Assert.AreEqual(media.Type, result.Type);
             Assert.AreEqual(media.Path, result.Path);
+        }
+
+        [TestMethod]
+        public void ToTEF_ProvidingNull_ThrowException()
+        {
+            //ARRANGE
+            MediaTO media = null;
+            //ACT
+            Assert.ThrowsException<ArgumentNullException>(() => media.ToEF());
+        }
+
+        [TestMethod]
+        public void ToTrackedEF_ProvidingNullEF_ThrowException()
+        {
+            //ARRANGE
+            MediaTO media = null;
+            MediaEF mediaToModify = null;
+            //ACT
+            Assert.ThrowsException<ArgumentNullException>(() => media.ToTrackedEF(mediaToModify));
+        }
+        [TestMethod]
+        public void ToTrackedEF_ProvidingNullTO_ThrowException()
+        {
+            //ARRANGE
+            MediaTO media = null;
+            var mediaToModify = new MediaEF { Id = 1, Name = "Cendrillon", Type = MediaType.Film, Path = "C:/Films/Animation" };
+            //ACT
+            Assert.ThrowsException<ArgumentNullException>(() => media.ToTrackedEF(mediaToModify));
         }
     }
 }

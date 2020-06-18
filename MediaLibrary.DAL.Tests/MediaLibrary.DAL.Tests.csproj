@@ -64,10 +64,11 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MediaRepoTests\CreerMediaTests.cs" />
-    <Compile Include="MediaRepoTests\ModifierMediaTests.cs" />
-    <Compile Include="MediaRepoTests\ObtenirTousMediasTests.cs" />
-    <Compile Include="MediaRepoTests\SupprimerMediaTests.cs" />
+    <Compile Include="MediaRepoTests\CreateMediaTests.cs" />
+    <Compile Include="MediaRepoTests\ModifiyMediaTests.cs" />
+    <Compile Include="MediaRepoTests\GetAllMediasTests.cs" />
+    <Compile Include="MediaRepoTests\DeleteMediaTests.cs" />
+    <Compile Include="MediaRepoTests\GetMediaByIdTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,9 +8,10 @@ namespace MediaLibrary.Common
 {
     public interface IRepo : IDisposable
     {
-        MediaTO CreerMedia(MediaTO entity);
-        MediaTO ModifierMedia(MediaTO entity);
-        bool SupprimerMedia(MediaTO entity);
-        List<MediaTO> ObtenirTousMedias();
+        MediaTO CreateMedia(MediaTO entity);
+        MediaTO ModifyMedia(MediaTO entity);
+        bool DeleteMedia(MediaTO entity);
+        List<MediaTO> GetAllMedias();
+        MediaTO GetById(int id);
     }
 }

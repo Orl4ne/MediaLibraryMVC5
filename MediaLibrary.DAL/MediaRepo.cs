@@ -18,7 +18,7 @@ namespace MediaLibrary.DAL
         {
             context.Dispose();
         }
-        public MediaTO CreerMedia(MediaTO entity)
+        public MediaTO CreateMedia(MediaTO entity)
         {
             if (entity is null)
             {
@@ -34,7 +34,7 @@ namespace MediaLibrary.DAL
             return entityEF.ToTransferObject();
         }
 
-        public MediaTO ModifierMedia(MediaTO entity)
+        public MediaTO ModifyMedia(MediaTO entity)
         {
             if (entity is null)
             {
@@ -59,36 +59,46 @@ namespace MediaLibrary.DAL
             return editedEntity.ToTransferObject();
         }
 
-        public List<MediaTO> ObtenirTousMedias()
+        public List<MediaTO> GetAllMedias()
         {
-            return context.Medias.AsEnumerable()
-                ?.Select(x => x.ToTransferObject())
-                .ToList();
+
+            var list =  context.Medias.AsEnumerable()
+                 ?.Select(x => x.ToTransferObject())
+                 .ToList();
+            if (!list.Any())
+            {
+                throw new ArgumentNullException("There is no Media in DB");
+            }
+            return list;
         }
 
-        public bool SupprimerMedia(MediaTO entity)
+        public bool DeleteMedia(MediaTO entity)
         {
-            var media = context.Medias.FirstOrDefault(x => x.Id == entity.Id);
-
-            if (media is null)
+            if (entity is null)
             {
                 throw new KeyNotFoundException();
             }
-            try
+            if (entity.Id <= 0)
             {
-                context.Medias.Remove(media);
-                context.SaveChanges();
-                return true;
+                throw new ArgumentException("Media To Delete Invalid Id");
             }
-            catch (ArgumentException)
-            {
-                return false;
-            }
+
+            var media = context.Medias.FirstOrDefault(x => x.Id == entity.Id);
+            context.Medias.Remove(media);
+            context.SaveChanges();
+            return true;
+
         }
 
-        public MediaTO GetById (int id)
+        public MediaTO GetById(int id)
         {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Media not found, invalid Id");
+            }
             return context.Medias.FirstOrDefault(x => x.Id == id).ToTransferObject();
+
+
         }
     }
 }
