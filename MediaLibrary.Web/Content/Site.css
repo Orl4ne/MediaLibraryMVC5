@@ -7,15 +7,6 @@ html, body {
     min-height: 100vh;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-body > main {
-    flex: 1;
-}
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
